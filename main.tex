@@ -1,0 +1,355 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% modern themes
+\moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+\usepackage[utf8]{inputenc}
+\usepackage{fontawesome}
+\usepackage{fontspec}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+% if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
+\usepackage{multicol}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+\usepackage{import}
+\usepackage{etoolbox}
+
+\usepackage{hyperref}
+% \hypersetup{
+%     colorlinks=true,
+%     linkcolor=blue,
+%     filecolor=magenta,      
+%     urlcolor=cyan,
+% }
+\urlstyle{same} % Default settings print links in mono-style spaced fonts, this command changes that and displays the links in the same style as the rest of the text.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Set Toggles %%%%%%%%%%%%%%%%%%%
+\newtoggle{education}
+\toggletrue{education}
+%\togglefalse{education}
+
+\newtoggle{experience}
+\toggletrue{experience}
+%\togglefalse{experience}
+
+\newtoggle{course-projects}
+\toggletrue{course-projects}
+%\togglefalse{course-projects}
+
+\newtoggle{publications}
+\toggletrue{publications}
+%\togglefalse{publications}
+
+\newtoggle{presentations}
+\toggletrue{presentations}
+%\togglefalse{presentations}
+
+\newtoggle{additional}
+% \toggletrue{additional}
+\togglefalse{additional}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% personal data %%%%%%%%%%%%%%%%%%%
+\name{Glen A.}{Simon}
+%\title{Resume}
+\address{9697 Barnes Rd. Portland, MI. 48875 }{}{}
+\email{glen.a.simon@gmail.com}
+\phone[mobile]{517-927-1097}
+%\phone[fixed]{517-647}
+%\homepage{https://github.com/gsimon2}
+\extrainfo{\faGithub\enspace \href{https://github.com/gsimon2}{https://github.com/gsimon2}}
+\photo[64pt][0.4pt]{profile_pic.jpg}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  
+\newcommand*{\customcventry}[7][.25em]{
+  \begin{tabular}{@{}l} 
+    {\bfseries #4}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+     {\bfseries #5}
+  \end{tabular} \\
+  \begin{tabular}{@{}l} 
+    {\small\itshape #3}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+     {\small\itshape #2}
+  \end{tabular}
+  \ifx&#7&%
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+      \small#7%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+\newcommand*{\customcvproject}[4][.25em]{
+%   \vfill\noindent
+  \begin{tabular}{@{}l} 
+    {\bfseries #2}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+     {\itshape #3}
+  \end{tabular}
+  \ifx&#4&%
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+      \small#4%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+\setlength{\tabcolsep}{12pt}
+
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+
+  
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\vspace*{-20mm}
+\makecvtitle
+\vspace*{-23mm}
+
+\begin{center}
+\begin{tabular}{ c c c c }
+ %\faGlobe\enspace mysite.me & \faEnvelopeO\enspace xxxx@swarthmore.edu & \faGithub\enspace yourgithub & \faMobile\enspace \phonenumber{}\\  
+\end{tabular}
+\end{center}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Education %%%%%%%%%%%%%%%%%%%%%%%
+
+\section{EDUCATION}
+% Masters
+{\customcventry{January 2017 - December 2018}{MS in Computer Science, GPA: 3.95}{Michigan State University}{East Lansing, MI}{}{}}
+% Bacholars
+{\customcventry{June 2014 - December 2016}{BS in Computer Engineering (cum laude), Dean's List, GPA: 3.87}{Michigan State University}{East Lansing, MI}{}{}}
+% Prep courses at LCC
+% {\customcventry{January 2013 - May 2014}{Prep classes for MSU engineering program, Dean's List, GPA: 3.93}{Lansing Community College}{Lansing, MI}{}{}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Experience %%%%%%%%%%%%%%%%%%%%%%
+\section{EXPERIENCE}
+
+%% TechSmith
+{\customcventry{Jan 2019 - Current}{Software Engineer 2 - Cloud Services Department}{TechSmith}{Okemos, MI}{}
+{\begin{itemize}
+  \item Designed and developed single page applications, micro front-end components, and component libraries using packages including React, Redux, Axios, and Styled Components.
+  \item Supported in-depth unit and accessibility testing utilizing Jest and Pa11y respectively.
+  \item Architected  a pattern of leveraging lightweight ExpressJS servers to enable testing of front end applications that were driven by network calls. 
+  \item Maintained and extended controllers in dotnet applications including implementing new functionality or increasing ease of use by adding packages such as Swagger.
+  \item Utilized tooling such as Azure Devops for CI/CD build and release pipelines and Azure Application Insights to monitor application health and usage.
+  \item Created a VSCode Extension to house and share common snippits that are used across cloud repositories to enable quicker development of common components
+\end{itemize}
+}
+
+%% MSU SENS RA 
+{\customcventry{Jan 2017 - Jan 2019}{Graduate Research Assistant - Software Engineering and Network Systems Lab}{Michigan State University}{East Lansing, MI}{}
+{\begin{itemize}
+  \item Developed the Evo-ROS framework that integrates evolutionary search capabilities with the Robot Operating System (ROS) and the Gazebo physics simulator.
+  \item Integrated the ROS navigation stack as well as designed custom controllers to implement autonomous control of an unmanned ground vehicle (UGV) in simulation.
+  \item Facilitated the build process of the MSU Autorally platform, which is a fully autonomous 1:5 scale UGV.
+\end{itemize}
+}
+
+%% MSU CSE420 TA
+{\customcventry{Sept 2016 - Dec 2016}{Teaching Assistant - Computer Networks - CSE 422}{Michigan State University}{East Lansing, MI}{}
+{\begin{itemize}
+  \item Created teaching lab assignments for students to reinforce material learned in course lectures.
+  \item Held weekly office hours to assist students with understanding course material.
+\end{itemize}
+}
+
+%% DKHowe Consulting
+% {\customcventry{Sept 2013 – Sept 2016}{Database Developer}{DKHowe Consulting}{Okemos, MI}{}
+% {\begin{itemize}
+%   \item Processed and analyzed Medicaid data to provide accurately updated databases, meaningful enrollment and capitation reports, and trend predictions for Michigan Medicaid service providers.
+%   \item Modified pre-existing software packages to add on various features aimed at implementing specific needs of the users allowing for increased productivity.
+%   \item Developed automation tools and created custom scripts to greatly reduce the processing time and human interaction in the Medicaid data processing work flow.   
+%   \item Provided both on-site and remote help for clients with trouble shooting or with the installation of software packages and databases.
+% \end{itemize}
+% }
+
+%% MSU ECE331 TA
+%{\customcventry{Sept 2015 – Dec 2015}{Microprocessors and Digital Systems Teaching Assistant}%{Michigan State University}{East Lansing, MI}{}
+%{\begin{itemize}
+%  \item Filled in for one semester due to sudden illness of graduate student who had the position.
+%  \item Teach weekly lab sessions to supplement course information covered in lecture and allow %students to get hands on experience with programming micro-controllers.
+%\end{itemize}
+%}
+
+%% MSU AMSaC Assistant
+%{\customcventry{June 2015 – Sept 2015}{Undergraduate Lab Assistant}{Advance Micro Systems and Circuits Lab, Michigan State University}{East Lansing, MI}{}
+%{\begin{itemize}
+%  \item Design and test a printed circuit board, using Eagle, supporting the emulation and control of %a model train used in MSU teaching labs.
+%\end{itemize}
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Projects %%%%%%%%%%%%%%%%%%%%%%%%
+\section{SELECTED PROJECTS}
+
+{\customcventry{Nov 2020 - Current}{Personal Project}{Create and Maintain \href{https://foundryvtt.com/}{Foundry VTT} Modules }{}{}
+{\begin{itemize}
+    \item Developed and actively maintain open source, free to use modules that offer additional functionality to a popular virtual table top system, which combined have thousands of downloads.
+    \item Regularly monitor community feedback: addressing bug reports, feature requests, and assisting with troubleshooting user issues.
+    \item List of modules (hyperlinked):
+    {\begin{itemize}
+        \item \href{https://github.com/gsimon2/dramatic-rolls}{Dramatic Rolls},
+        \href{https://github.com/gsimon2/pf2e-inspire-courage}{PF2E Inspire Courage},
+        \href{https://github.com/gsimon2/playlist-drag-and-drop}{Playlist Drag and Drop},
+        \href{https://github.com/gsimon2/hide-player-ui}{Hide Play UI},
+        \href{https://github.com/gsimon2/close-player-art}{Close Player Art}
+    \end{itemize}}
+\end{itemize}
+}
+
+\newpage 
+
+{\customcventry{Aug 2018 - Sept 2018}{Personal Project}{Fitbit Fitness Tracker Custom Watch Face}{}{}
+{\begin{itemize}
+    \item Designed using the Fitbit Software Development Kit (SDK) to familiarize myself with JavaScript, CSS, and SVG.
+    \item Developed a custom watch face application capable of being deployed across multiple fitness trackers with various aspect ratios and built-in features.
+    \item Created custom functionality to push my understanding of the languages used and the Fitbit SDK framework.
+\end{itemize}
+}
+
+
+{\customcventry{Sept 2017 - Dec 2017}{Course Project - Advanced Computer Networks - MSU CSE 824}{Population Mapping via WiFi Network Analysis}{}{}
+{\begin{itemize}
+    \item Collaborated with two students to collect and analyze WiFi network usage in the MSU Engineering Building.
+    \item Implemented algorithms to map user connection events to access points throughout the building to give visual representations foot traffic routes.
+    \item Used aggregate data to map the population density of the building over time and make predictions of future density patterns.
+\end{itemize}
+}
+
+
+{\customcventry{Sept 2016 - Dec 2016}{Course Project - Senior Design - MSU ECE 480}{Cyber-Physical Shoulder Rehabilitation Platform}{}{}
+{\begin{itemize}
+    \item Cooperated with a team of students and two mechanical engineering firms to incorporate a screen onto a shoulder therapy machine to run a custom developed application that provided visual tutorials explaining how to correctly perform numerous exercises on the machine.
+    \item Outfitted the shoulder therapy machine with a variety of sensors to monitor the user's performance during a therapy session and progress over multiple sessions.
+    \item Designed and developed a database and website allowing workouts monitored on the machine to be uploaded, analyzed, and displayed to therapists. Therapists could then create a customized workout plan for each client, which would be displayed the next time the client logged into the shoulder therapy machine.
+\end{itemize}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Publications %%%%%%%%%%%%%%%%%%%%%%%%
+\section{PUBLICATIONS}
+\vspace{-5mm}
+{\customcvproject{}{}
+  {\begin{itemize}
+  	\item G. A. Simon, J. M. Moore, A. J. Clark and P. K. McKinley, Evo-ROS: Integrating Evolution and the Robot Operating System, \textit{Proceedings of the Genetic and Evolutionary Computation Conference Companion}, pp. 1386-1393, Kyoto, Japan, July 2018.
+  	\item J. M. Moore, A. J. Clark, G. A. Simon and P. K. McKinley, Evo-ROS: Integrating Evolutionary Robotics and ROS (poster summary), \textit{Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems}, Vancouver, BC, Canada, September 2017.
+  \end{itemize}
+  }
+}  
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Presentations %%%%%%%%%%%%%%%%%%%%%%%%
+\iftoggle{presentations}{
+  \section{PRESENTATIONS}
+  \vspace{-5mm}
+  {\customcvproject{}{}
+    {\begin{itemize}
+      \item X-PLORE / Evo-ROS Update 2, PI meeting for AFRL Resilient and Trusted Systems Program, Ann Arbor, MI, September 2018.
+      \item Evo-ROS: Integrating Evolution and the Robot Operating System, Genetic and Evolutionary Computation Conference, Kyoto, Japan, July 2018.
+      \item X-PLORE / Evo-ROS Update 1, PI meeting for AFRL Resilient and Trusted Systems Program, Miami, FL. January 2018.
+      \item Evo-ROS: Applying Evolution to the Robot Operating System (poster summary), International Conference on Intelligent Robots and Systems (IROS), Vancouver, BC, Canada. September 2017.
+      \item Evo-ROS: Applying Evolution to the the Robot Operating System (poster summary), Michigan State University 
+  Bio/Computational Evolution in Action CONsortium (BEACON) Congress, East Lansing, MI. August 2017.
+      \item X-PLORE / Evo-ROS, PI meeting for AFRL Resilient and Trusted Systems Program, East Lansing, MI. July 2017.
+    \end{itemize}
+    }
+  }
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Additional %%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace{-5mm}
+\iftoggle{additional}{
+    \section{ADDITIONAL}
+    \begin{minipage}{\maincolumnwidth}%
+    
+    {\customcvproject{Relevant Coursework}{}
+      {\begin{itemize}
+         \item 
+             Artificial Intelligence, 
+             Artificial Neural Networks,
+             Advanced Software Engineering,
+             Evolutionary Computation,
+             Advanced Computer Networks.
+             %Distributed Systems,
+      \end{itemize}
+      }
+    }
+    {\customcvproject{Programming Languages}{}
+      {\begin{itemize}
+       	\item 
+       	    TypeScript,
+       	    JavaScript,
+        	Python, 
+            C\#,
+            HTML,
+            CSS,
+            Visual Basic,
+            SQL
+            %\LaTeX
+      \end{itemize}
+      }
+    }
+    {\customcvproject{Technologies}{}
+      {\begin{itemize}
+       	\item 
+       	    VSCode,
+       	    Azure Devops,
+       	    Azure Portal,
+      \end{itemize}
+      }
+    }
+    \end{minipage}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}
+\end{document}
+
+
